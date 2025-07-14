@@ -1,0 +1,60 @@
+{
+  "projects": [
+    {
+      "id": "junipers-christmas",
+      "slug": "junipers-christmas-book",
+      "title": "Juniper's Christmas",
+      "description": "Cover art and illustrations for Juniper's Christmas, written by best-selling author of Eoin Colfer, and published by HarperCollins.",
+      "images": [
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuBC3xTgJiVdzj6UBcc2RqznJoQ6-0_-C_hOE8c9tZNOdc2w0ViOqz3Arm-FWYgw0sSOIost_R-tDNu66KBvntIm54Q0eEzIYsgCgjPV_YH9_D2v3b7LVjFLXv53V_BpzU5wNPZKxUUXn7C0tx8gMhcs3Sy5YHbsR6Nz0YyILCZy057KPbNvQEbVvSy5l1LoVmw6LN5VezcoGzDALYY8w7tfXvujltyuJJEavpoX6C7eu7H7FGU1yd-4Zeq2w-MGtZiKhzc2RF2Y5IU",
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuDMJ0rn44Pn_VEObvEeKmmVwLoFQKRQOeH0n-sOGBNlIIlNpPrlfb-u6VYwBPp6TbhO4Zf21QAVjix5PAblxtBSI968Lux76EeklzW4AzMKcdBaR0K6qS-BGE9wkWL5I7e4zEtXqN1TE7tfgV48rDzZ-9F2s6Pkuza2JLjjvPyyI4_jZRpzNkxU4MhbgVGFsApbI3IHUjL1RjvuYkF2mj_xer_lijwwO_Tvk-HPA-MXf8qXBij8ruuy07Ne2DmkGk_Y9DGjchKKdsQ"
+      ]
+    },
+    {
+      "id": "culture-of-clothes",
+      "slug": "culture-of-clothes-picture-book",
+      "title": "The Culture Of Clothes",
+      "description": "A beautiful picture book exploring different cultures through traditional clothing and fashion. Detailed illustrations showcase the diversity and beauty of cultural dress from around the world.",
+      "type": "Picture Book",
+      "images": [
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuCVDYg1TW4sgu3pt1h3HM7ugOMMddsBpGL97t_9wCzMn9woVHht1JWcd5jAN_ZTfMWW5SYMD_QvxUaUOsJ-_jhGfVS5AzTFSd0UVguj3Ryv6zgME5vgG-9cz-YiVP8_Gslly2b_Z-m1NImq4tmEw2D9SrAMQ9KZPNbxWRD5GB1CetYVHmRneX-JSkSp_TJEzECSHavupvAf1yRQLiYkE2-1ZIY6WCe270Y8OunG7Su6zvgIYv4yCfUmilNgJvLxTeeq-mLiSolxX88"
+      ]
+    },
+    {
+      "id": "anni-dreams-biryani",
+      "slug": "anni-dreams-of-biryani",
+      "title": "Anni Dreams of Biryani",
+      "description": "A delightful children's book about food, family, and dreams. Published by Amazon Two Lions, this story celebrates South Asian culture through beautiful illustrations and a heartwarming narrative.",
+      "images": [
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuBnAKgoMUHGSaVIGxQ2cUK7HcfSxURcmNsMfDvXBsnMRuSXcXPmYdgOePQ3ACrLtm5xyLTK1ZcWgEoO1Ngpz1_3q1ODHLC_A2CqaTC_kie8nfM5X0IwhX-NFO6lE91Hst2Ep7eZpVGnAR9zv9w3N6iIAw6-UWfUqEgbPVYCYsviu0_NfBV0SZ0K7KlKL6qNNXUulI_-Q9Cz-3NTkzTdUx-1fzcnF4_oJORp05AhOzi0kvO3Y_r9wsEN3NgQf09pNUJj3VZnswAFUHM"
+      ]
+    },
+    {
+      "id": "hole-in-fence",
+      "slug": "readers-digest-hole-in-fence",
+      "title": "Reader's Digest - The Hole in The Fence",
+      "description": "An engaging story published in Reader's Digest featuring intricate illustrations that bring the narrative to life. A tale of curiosity, discovery, and childhood wonder.",
+      "images": [
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuAvgUrey5hUy8oyZJ2uDkRyG_B2ug90DjfpToLwRJ85abT4C4KAo13cJAqT9SUMTTpY1bcACgsD342k6NNO8EKwoBDtJRWTKlCBkgvXVqG-tEZnZVVhoFI-QigaWAAyldGgd_xVe29M6nug9I8ro9BjVTSRFgBCc3UAnw8Btras7BHRwhezy-pJCvdfu1gd9I7wQuZTyRSUMmENtq0Ooi1-0suQaVXj1bg9GgD7MyO_u1WaZP5bEoiB5cp-gM4kFTRDKajSDRl_PEo"
+      ]
+    },
+    {
+      "id": "big-cats",
+      "slug": "big-cats-educational-series",
+      "title": "Big Cats",
+      "description": "Educational illustrations for 'A Day In The Life' series, showcasing the majestic world of big cats through detailed and scientifically accurate artwork.",
+      "images": [
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuC8bVEkcMI0IgZXhUUrtCjQG-jL-aGwigAbxXqhS_GGS5dkSvuJRuHRmf1PfBg7cDguDezSQcXy_93ungPrnMVSq1j1C4B_Um3gJ8wfxCo9MPiOXUN79ai2noX-sn2M8G02cIYqNeOjc5Mw8foo-Mu-VQ6JVGJSdC9g4NmJzGVTzXPuELPjNuRfwDEkX-IkR1bj62mmUvKPcb1EIh97MWnLXZimN3q4tN8HJ2QSNcQaZBOCBLbPwOuHqy11y7J9RC8qZlW6uO3Fyoo"
+      ]
+    },
+    {
+      "id": "hide-seek-greeks",
+      "slug": "hide-and-seek-history-greeks",
+      "title": "Hide-and-Seek History: The Greeks",
+      "description": "An interactive educational book that combines history with engaging illustrations. Part of the Hide-and-Seek History series, bringing ancient Greek civilization to life for young readers.",
+      "images": [
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuDiU2OcrdJfq9h20XE2g5XXU3xm6Xb5NfrOKOjR2aMJs1xOT63c5ZMFfkjDTOw_Uhb3x1dy-o_bKv3tbXUNknh5UYfGuhPZh7Kgbx0a6px9TD1XbOqKbb9iHKAxgNgmHsGWgxPaLfKQOaxpABaWy1E1Kxe0YKoD1oZIL0ImzBtoJ5Vm51jjSAmA6ppQ5KdD74il60z_7X_xvuMvY0oUn37RjMjiR4YAQ9bzkw-XFGuILzepVkFRAcANgWPo75e8ADwCiIrOzhgRs9o"
+      ]
+    }
+  ]
+}

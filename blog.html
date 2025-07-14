@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title id="page-title">Project Details</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Lato', sans-serif;
+        }
+        .font-dancing-script {
+            font-family: 'Dancing Script', cursive;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+<div class="container mx-auto px-4 py-8">
+<header class="mb-8">
+<div class="flex items-center justify-between">
+<a href="index.html" class="text-gray-600 hover:text-gray-900 flex items-center">
+<svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+</svg>
+Back to Gallery
+</a>
+<h1 class="text-3xl font-dancing-script">JaganArt</h1>
+</div>
+</header>
+
+<main>
+<header class="text-center mb-12">
+<h1 id="project-title" class="text-5xl font-bold mb-4">Project Title</h1>
+<div id="project-metadata" class="text-lg text-gray-600">
+<!-- Project metadata will be inserted here -->
+</div>
+</header>
+
+<section class="max-w-3xl mx-auto text-center mb-16">
+<p id="project-description" class="text-lg mb-4">Project description will be loaded here.</p>
+</section>
+
+<section id="project-images" class="w-full space-y-8">
+<!-- Project images will be inserted here -->
+</section>
+</main>
+</div>
+
+<script>
+    function getProjectSlugFromURL() {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get('project');
+    }
+
+    async function loadProjectFromSlug(slug) {
+        try {
+            const response = await fetch('data.json');
+            const data = await response.json();
+            const project = data.projects.find(p => p.slug === slug);
+            return project;
+        } catch (error) {
+            console.error('Error loading project data:', error);
+            return null;
+        }
+    }
+
+    async function loadProjectData() {
+        // First try to get project from URL parameter
+        const slugFromURL = getProjectSlugFromURL();
+        let project = null;
+
+        if (slugFromURL) {
+            project = await loadProjectFromSlug(slugFromURL);
+            // Store in sessionStorage for consistency
+            if (project) {
+                sessionStorage.setItem('currentProject', JSON.stringify(project));
+            }
+        } else {
+            // Fallback to sessionStorage (for backward compatibility)
+            const projectData = sessionStorage.getItem('currentProject');
+            if (projectData) {
+                project = JSON.parse(projectData);
+                // Update URL to reflect the slug
+                const newURL = `${window.location.pathname}?project=${project.slug}`;
+                window.history.replaceState({}, '', newURL);
+            }
+        }
+        
+        if (!project) {
+            // If no project data, redirect back to gallery
+            window.location.href = 'index.html';
+            return;
+        }
+        
+        // Update page title
+        document.getElementById('page-title').textContent = project.title;
+        document.getElementById('project-title').textContent = project.title;
+        
+        // Update description
+        document.getElementById('project-description').textContent = project.description;
+        
+        // Update metadata
+        const metadata = document.getElementById('project-metadata');
+        let metadataHTML = '';
+       
+        
+        metadata.innerHTML = metadataHTML;
+        
+        // Load images
+        const imagesContainer = document.getElementById('project-images');
+        project.images.forEach((imageUrl, index) => {
+            const imageDiv = document.createElement('div');
+            imageDiv.className = 'mb-8';
+            imageDiv.innerHTML = `
+                <img alt="${project.title} - Image ${index + 1}" 
+                     class="w-full h-auto object-cover rounded-lg shadow-lg" 
+                     src="${imageUrl}" />
+            `;
+            imagesContainer.appendChild(imageDiv);
+        });
+    }
+    
+    // Load project data when page loads
+    document.addEventListener('DOMContentLoaded', loadProjectData);
+</script>
+
+</body></html>

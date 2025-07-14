@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JaganArt</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style type="text/tailwindcss">
+        .font-dancing-script {
+            font-family: 'Dancing Script', cursive;
+        }
+    </style>
+</head>
+<body class="bg-white">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<header class="py-12">
+<div class="text-center mb-8">
+<h1 class="text-6xl font-dancing-script">JaganArt</h1>
+</div>
+<nav class="flex justify-center items-center">
+<ul class="hidden md:flex items-center space-x-8 text-gray-700">
+<li><a class="hover:text-gray-900" href="#">All Work</a></li>
+<li><a class="hover:text-gray-900" href="#">Picture Books</a></li>
+<li><a class="hover:text-gray-900" href="#">Book Covers</a></li>
+<li><a class="hover:text-gray-900" href="#">Sketchbooks</a></li>
+<li><a class="hover:text-gray-900" href="#">About</a></li>
+<li><a class="hover:text-gray-900" href="#">Media</a></li>
+</ul>
+<div class="md:hidden">
+<button class="text-gray-700 hover:text-gray-900" id="menu-btn">
+<span class="material-symbols-outlined">
+                        menu
+                    </span>
+</button>
+</div>
+</nav>
+<div class="hidden md:hidden mt-4" id="mobile-menu">
+<ul class="flex flex-col items-center space-y-4 text-gray-700">
+<li><a class="hover:text-gray-900" href="#">All Work</a></li>
+<li><a class="hover:text-gray-900" href="#">Picture Books</a></li>
+<li><a class="hover:text-gray-900" href="#">Book Covers</a></li>
+<li><a class="hover:text-gray-900" href="#">Sketchbooks</a></li>
+<li><a class="hover:text-gray-900" href="#">About</a></li>
+<li><a class="hover:text-gray-900" href="#">Media</a></li>
+</ul>
+</div>
+<div class="flex justify-center items-center space-x-4 mt-6">
+<a class="text-gray-600 hover:text-gray-900" href="#">
+<svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.04C6.5 2.04 2 6.53 2 12s4.5 9.96 10 9.96c5.5 0 10-4.46 10-9.96S17.5 2.04 12 2.04zM12 16.5c-2.49 0-4.5-2.01-4.5-4.5S9.51 7.5 12 7.5s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5zm0-7c-1.38 0-2.5 1.12-2.5 2.5s1.12 2.5 2.5 2.5 2.5-1.12 2.5-2.5-1.12-2.5-2.5-2.5z"></path></svg>
+</a>
+<a class="text-gray-600 hover:text-gray-900" href="#">
+<svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 01-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 017.8 2zm-.2 2A3.6 3.6 0 004 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 003.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6zm9.65 1.5a1.25 1.25 0 011.25 1.25A1.25 1.25 0 0117.25 8 1.25 1.25 0 0116 6.75a1.25 1.25 0 011.25-1.25zM12 7a5 5 0 110 10 5 5 0 010-10zm0 2a3 3 0 100 6 3 3 0 000-6z"></path></svg>
+</a>
+</div>
+</header>
+<main class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" id="gallery">
+<!-- Gallery cards will be generated here by JavaScript -->
+</main>
+</div>
+<script>
+    // Mobile menu functionality
+    document.getElementById('menu-btn').addEventListener('click', function() {
+        var mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenu.classList.contains('hidden')) {
+            mobileMenu.classList.remove('hidden');
+        } else {
+            mobileMenu.classList.add('hidden');
+        }
+    });
+
+    // Load and display gallery items from JSON
+    async function loadGallery() {
+        try {
+            const response = await fetch('data.json');
+            const data = await response.json();
+            const gallery = document.getElementById('gallery');
+            
+            data.projects.forEach(project => {
+                const card = document.createElement('div');
+                card.className = 'group cursor-pointer';
+                card.onclick = () => openProject(project.slug);
+                
+                card.innerHTML = `
+                    <div class="overflow-hidden rounded-lg">
+                        <img alt="${project.title}" 
+                             class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-300" 
+                             src="${project.images[0]}" />
+                    </div>
+                    <p class="text-center mt-4 text-gray-700">${project.title}</p>
+                `;
+                
+                gallery.appendChild(card);
+            });
+        } catch (error) {
+            console.error('Error loading gallery:', error);
+        }
+    }
+
+    // Open project detail page
+    function openProject(projectSlug) {
+        // Store project data in sessionStorage for the blog page
+        fetch('data.json')
+            .then(response => response.json())
+            .then(data => {
+                const project = data.projects.find(p => p.slug === projectSlug);
+                if (project) {
+                    sessionStorage.setItem('currentProject', JSON.stringify(project));
+                    window.location.href = `blog.html?project=${projectSlug}`;
+                }
+            });
+    }
+
+    // Load gallery when page loads
+    document.addEventListener('DOMContentLoaded', loadGallery);
+</script>
+
+</body></html>
